@@ -54,17 +54,19 @@ function Add({ app }) {
         e.preventDefault();
         const db = getFirestore(app);
         try {
-            const emailExists = await checkEmailExists(formData.email);
 
-            if (emailExists && (!id || formData.email !== originalEmail)) {
-                alert('This email id already exists.');
-                return;
-            }
 
             if (id) {
                 await updateDoc(doc(db, 'users', id), formData);
                 console.log("Document updated with ID: ", id);
             } else {
+
+                const emailExists = await checkEmailExists(formData.email);
+
+                if (emailExists && (!id || formData.email !== originalEmail)) {
+                    alert('This email id already exists.');
+                    return;
+                }
 
                 const docRef = await addDoc(collection(db, 'users'), formData);
                 console.log("Document written with ID: ", docRef.id);
@@ -112,7 +114,7 @@ function Add({ app }) {
                                     <div className='flex flex-col w-full sm:w-1/2'>
                                         <label htmlFor="phone" className='text-sm'>PHONE <span className='text-red-600'>*</span></label>
                                         <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} placeholder='Phone Number' className='px-4 sm:px-8 rounded-lg py-2 bg-white border w-full' required maxLength={10} pattern="\d*"
-                                        onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '')} 
+                                            onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '')}
 
                                         />
                                     </div>
@@ -139,7 +141,7 @@ function Add({ app }) {
                                     </div>
                                 </div>
                                 <div className='flex justify-center mt-6 gap-x-10'>
-                                    
+
                                     <a href='/' className='px-8 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors'>
                                         Back
                                     </a>
