@@ -8,11 +8,11 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" >
-            <Route path="" element={<Home app={app}/>} />
-            <Route path="adduser" element={<Add app={app}/>} />
+    
+            <Route path="/" element={<Home app={app}/>} />
+            <Route path="/adduser" element={<Add app={app}/>} />
             <Route path="/adduser/:id" element={<Add app={app} />} />
-          </Route>
+        
         </Routes>
       </BrowserRouter>
   )

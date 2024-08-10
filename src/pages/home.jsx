@@ -64,7 +64,7 @@ function Home({ app }) {
                         <h3 className='text-lg text-green-600'>Manage Users</h3>
                         <div className='flex flex-row gap-x-4 items-center'>
                             <button><Search size={28} /></button>
-                            <a href='/adduser' className='px-4 sm:px-8 py-2 bg-green-600 rounded-lg items-center gap-x-2 flex text-white'><CirclePlus size={18} />                            <span className='hidden sm:inline'>Add</span></a>
+                            <a href='/adduser' className='px-4 sm:px-8 py-2 bg-green-600 rounded-lg items-center gap-x-2 flex text-white'><CirclePlus size={18} /> <span className='hidden sm:inline'>Add</span></a>
                         </div>
                     </div>
                     <div className='bg-gray-100 w-full p-4 sm:p-6 mt-4'>
